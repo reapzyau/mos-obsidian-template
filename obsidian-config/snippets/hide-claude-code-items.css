@@ -1,0 +1,8 @@
+/* Hide Claude Code / repo-machinery items from the file explorer */
+
+.nav-folder:has(> .nav-folder-title[data-path="MEMORY"]),
+.nav-folder:has(> .nav-folder-title[data-path="Plans"]),
+.nav-file:has(> .nav-file-title[data-path="README.md"]),
+.nav-file:has(> .nav-file-title[data-path="tvml.code-workspace"]) {
+  display: none !important;
+}
