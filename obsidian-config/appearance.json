@@ -1,5 +1,6 @@
 {
-  "cssTheme": "Obsidianite",
+  "theme": "obsidian",
+  "cssTheme": "Cupertino",
   "enabledCssSnippets": [
     "hide-claude-code-items"
   ]
