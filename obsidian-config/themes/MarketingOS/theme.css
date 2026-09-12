@@ -33,10 +33,13 @@
 
    Credit
    ------
-   The tonal approach here is learned from Cupertino by Alexis C, which derives
-   a whole tinted neutral ramp from a single accent hue. This theme is written
-   from scratch on that idea rather than forked from it, because Cupertino's
-   translucency is exactly the glass that Ember rules out.
+   Cupertino by Alexis C was the starting reference, and two things are worth
+   recording about why this is written from scratch rather than forked from it.
+   Cupertino's desktop colours are literal hex and color-mix rather than tokens,
+   so a token level retint would not have moved them. Only its Android Material
+   You path derives a tinted neutral ramp from a single accent hue, and that
+   idea is the one borrowed here. Its translucency is also the glass that Ember
+   rules out.
    ============================================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
