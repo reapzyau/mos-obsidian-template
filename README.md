@@ -1,58 +1,70 @@
-# tvml-obsidian
+# mos-obsidian-template
 
-Portable Obsidian setup for the **the-vibe-marketing-lab** vault. Clone this on any device and run one command to get the exact same Obsidian config — plugins, themes, snippets, hotkeys, and settings.
+My Obsidian setup, packaged so you can install it into your own MarketingOS brain in one command. Themes, plugins, hotkeys, folder icons, CSS snippets, and settings, exactly as I run them.
 
-This repo stores **config only** (`.obsidian`), never your notes. Your notes live in the `the-vibe-marketing-lab` repo itself (the one you open in VS Code).
+Part of the [MarketingOS](https://github.com/the-vibe-marketing-lab/marketing-os) setup. Every brain that `mos onboard` creates already opens as a basic Obsidian vault (three plugins, default theme). This template is the full version: install it when you want the vault to look and behave like mine.
 
-## What's captured
+> Formerly `tvml-obsidian`. Old clone URLs redirect, but update your remote (see below).
 
-- **Community plugins** (with their files, so installs are offline + deterministic): `terminal`, `obsidian-icon-folder`, `hot-reload`, `git-file-explorer-colors`
-- **Themes**: Minimal, Obsidianite (active), Things, Tokyo Night, Typewriter, Wasp
-- **Snippets**: `hide-claude-code-items.css`
-- **Settings**: appearance, core plugins, hotkeys, graph, webviewer, app
-- Folder icon mappings (icon-folder plugin)
+## What you get
 
-> `workspace.json` (window/pane layout) is intentionally **excluded** — it's per-device and noisy. Obsidian regenerates it.
+- **Community plugins**, with their files committed so installs are offline and deterministic: `terminal`, `obsidian-icon-folder` (Iconize), `hot-reload`, `git-file-explorer-colors`
+- **Themes**: Obsidianite (active), Minimal, Things, Tokyo Night, Typewriter, Wasp
+- **CSS snippets**: `hide-claude-code-items.css`, which hides agent machinery (`.claude`, workspace files) from the file explorer
+- **Settings**: appearance, core plugins, hotkeys, graph view, web viewer, app config
+- **Folder icon mappings** for the Iconize plugin
 
-## Setup on a new device
+This repo is **config only**. It writes to `<your brain>/.obsidian/` and never touches your notes.
+
+`workspace.json` (window and pane layout) is deliberately excluded. It is per-device and noisy; Obsidian regenerates it.
+
+## Install into your brain
+
+Requirements: [bun](https://bun.sh) and a MarketingOS brain folder on this machine.
 
 ```bash
-# 1. Clone next to your vault (both on Desktop is easiest)
-cd ~/Desktop
-git clone https://github.com/reapzyau/tvml-obsidian.git
-# (the-vibe-marketing-lab should also be cloned here)
+# 1. Clone the template anywhere
+git clone https://github.com/reapzyau/mos-obsidian-template.git
+cd mos-obsidian-template
 
-# 2. Install the config into the vault
-cd tvml-obsidian
-bun install.ts
+# 2. Preview what will be written (nothing is changed yet)
+bun install.ts --vault=/full/path/to/your-brain --dry-run
+
+# 3. Install
+bun install.ts --vault=/full/path/to/your-brain
 ```
 
-The installer finds the vault automatically. If needed, point it explicitly:
+Then open the brain in Obsidian (**File → Open vault → Open folder as vault**) and reload so the community plugins load: Command Palette → **Reload app without saving**.
+
+Run the installer again any time. It overwrites the config files it ships and leaves your `workspace.json` alone.
+
+### Vault auto-detection
+
+If you omit `--vault=`, the installer checks `$TVML_VAULT`, then looks for a folder named `the-vibe-marketing-lab` next to this repo, on your Desktop, or under any Windows user's Desktop from WSL. That is my own vault name, so as a MarketingOS user you will almost always pass `--vault=` explicitly.
+
+## Keeping your own changes
+
+Once installed, the config lives in your brain and is yours. Change plugins, themes, or hotkeys in Obsidian as normal; those edits stay in `<your brain>/.obsidian/`, which MarketingOS brains track in git.
+
+Re-running `bun install.ts` later resets the shipped files to this template's versions. Run `--dry-run` first if you have customised things.
+
+## Updating the template (maintainer workflow)
+
+`sync.ts` pulls the live `.obsidian/` from my vault back into `obsidian-config/`:
 
 ```bash
-bun install.ts --vault=/full/path/to/the-vibe-marketing-lab
-```
-
-Then open the vault in Obsidian (**Open folder as vault**) and reload: Command Palette → **Reload app without saving**.
-
-Preview without writing anything:
-
-```bash
-bun install.ts --dry-run
-```
-
-## Updating the snapshot
-
-Changed a plugin/theme/hotkey in Obsidian and want it on your other devices?
-
-```bash
-bun sync.ts                       # pulls live .obsidian back into this repo
+bun sync.ts --vault=/full/path/to/vault
 git add -A && git commit -m "sync obsidian config" && git push
 ```
 
-On the other device: `git pull && bun install.ts`, then reload Obsidian.
+On another device: `git pull && bun install.ts --vault=...`, then reload Obsidian.
 
-## Requirements
+## Migrating from `tvml-obsidian`
 
-- [bun](https://bun.sh) (scripts are dependency-free TypeScript)
-- The `the-vibe-marketing-lab` vault cloned somewhere on the device
+If you cloned this repo under its old name:
+
+```bash
+git remote set-url origin https://github.com/reapzyau/mos-obsidian-template.git
+```
+
+Nothing else changes. The scripts and config layout are the same.
