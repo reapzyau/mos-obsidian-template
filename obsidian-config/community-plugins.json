@@ -1,6 +1,8 @@
 [
-  "terminal",
-  "obsidian-icon-folder",
+  "obsidian-excalidraw-plugin",
+  "git-file-explorer-colors",
+  "hide-empty-folders",
   "hot-reload",
-  "git-file-explorer-colors"
+  "obsidian-html-plugin",
+  "obsidian-icon-folder"
 ]

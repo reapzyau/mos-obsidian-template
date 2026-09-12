@@ -1,6 +1,6 @@
-# tvml-obsidian
+# mos-obsidian-template
 
-Portable snapshot of the Obsidian setup for the **the-vibe-marketing-lab** vault, so it can be duplicated across devices. Notes are NOT stored here — only the `.obsidian` config (plugins, themes, snippets, hotkeys, settings).
+Portable snapshot of my Obsidian setup (formerly `tvml-obsidian`), shipped as the full-fat Obsidian layer for MarketingOS brains and used to duplicate my own vault config across devices. Notes are NOT stored here — only the `.obsidian` config (plugins, themes, snippets, hotkeys, settings).
 
 ## What to do when asked to "install the Obsidian setup"
 
