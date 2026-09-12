@@ -19,8 +19,11 @@
       separating. Raised things (modals, callouts, code) step up to Surface.
    2. One atmosphere. A single blurred Ember radial sits behind the top right
       of the note, and nowhere else in the app. It is the lamp.
-   3. The Lab Rule survives. The 56 by 3px Ember bar under a hero title is the
-      system's one ornament, so it sits under the note title and nowhere else.
+   3. The one ornament is earned, not applied. The system's 56 by 3px Ember bar
+      works under a hero you see once. Under a note title you open two hundred
+      times a day it is furniture, and Obsidian prints two titles, the filename
+      and the H1, so it stacked. It lives on the horizontal rule instead, where
+      only a person typing three dashes can summon it.
    4. Radii are scaled, not copied. The brand's 18px card radius holds for
       modals, callouts and code blocks. Dense controls get a derived 10px step,
       because an 18px radius on a 24px row reads as a pill by accident.
@@ -342,7 +345,7 @@ body {
 }
 
 /* Tracking is not expressible through Obsidian's heading variables. */
-.markdown-rendered h1, .cm-header-1, .inline-title { letter-spacing: -0.03em; }
+.markdown-rendered h1, .cm-header-1 { letter-spacing: -0.03em; }
 .markdown-rendered h2, .cm-header-2 { letter-spacing: -0.02em; }
 .markdown-rendered h3, .cm-header-3 { letter-spacing: -0.02em; }
 .markdown-rendered h4, .cm-header-4 { letter-spacing: -0.01em; }
@@ -363,26 +366,25 @@ body {
 }
 
 /* ----------------------------------------------------------------------------
-   5 · The Lab Rule. The system's one ornament, under the note title only.
+   5 · Titles. Carried by the size step and the space, with nothing under them.
+   Whitespace is the system's first rule: space and typography build hierarchy
+   before borders do. Bricolage at 800 against 18px Figtree is already a huge
+   step, so the title needs room beneath it, not a bar. The filename Obsidian
+   prints above the H1 drops back to quiet metadata in the body face, sentence
+   case, because a small tracked label above a heading is the one silhouette
+   the system rules out by name.
    ---------------------------------------------------------------------------- */
-.inline-title,
-.markdown-rendered h1 {
-  position: relative;
-  padding-bottom: 0.34em;
+.inline-title {
+  font-family: var(--mos-body);
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--text-faint);
+  margin-bottom: 0.35em;
 }
-.inline-title::after,
-.markdown-rendered h1::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: var(--mos-rule-width);
-  height: var(--mos-rule-height);
-  border-radius: 2px;
-  background: var(--mos-ember);
-}
-.theme-light .inline-title::after,
-.theme-light .markdown-rendered h1::after { background: var(--mos-ember-print); }
+.markdown-rendered h1,
+.cm-sizer .inline-title + .cm-line { margin-top: 0; }
+.markdown-rendered h1 { margin-bottom: 0.85em; }
 
 /* ----------------------------------------------------------------------------
    6 · The atmosphere. One blurred Ember radial, behind the top right of the
@@ -436,7 +438,7 @@ body {
 .theme-light .markdown-rendered,
 .theme-light .markdown-source-view.mod-cm6 .cm-content { color: var(--mos-ink-78); }
 .markdown-rendered h1, .markdown-rendered h2, .markdown-rendered h3,
-.markdown-rendered h4, .markdown-rendered h5, .inline-title { color: var(--text-normal); }
+.markdown-rendered h4, .markdown-rendered h5 { color: var(--text-normal); }
 
 /* Links. Underlined, Ember Bright, the single recurring accent in body copy. */
 .markdown-rendered a,
@@ -465,11 +467,17 @@ body {
 }
 .theme-light .markdown-rendered blockquote { color: var(--mos-ink-78); }
 
+/* The ornament lives here. A section break is an authored act rather than
+   furniture, so the Ember bar appears only where someone typed three dashes. */
 .markdown-rendered hr {
   border: none;
-  border-top: 1px solid var(--hr-color);
-  margin: 2.6rem 0;
+  height: var(--mos-rule-height);
+  width: var(--mos-rule-width);
+  border-radius: 2px;
+  background: var(--mos-ember);
+  margin: 3rem 0;
 }
+.theme-light .markdown-rendered hr { background: var(--mos-ember-print); }
 
 /* ----------------------------------------------------------------------------
    8 · Code. Plex Mono on a raised surface.
