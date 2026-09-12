@@ -46,7 +46,9 @@ Agents sometimes want to be helpful and "clean up" the vault. The prompt above i
 
 ## What you get
 
-- **Theme**: [Cupertino](https://github.com/aaaaalexis/obsidian-cupertino) in dark mode, set as the active theme. Needs Obsidian 1.13.4 or newer. Obsidianite, Minimal, Things, Tokyo Night, Typewriter and Wasp ship alongside it so you can switch.
+- **Theme**: **MarketingOS**, set as the active theme. It is the brain wearing the Ember design system: a warm dark ground, one Ember accent used sparingly, Bricolage Grotesque over Figtree, and a Paper variant if you flip to light mode. It is written for this template, so it is the only theme here that is actually ours. [Cupertino](https://github.com/aaaaalexis/obsidian-cupertino), Obsidianite, Minimal, Things, Tokyo Night, Typewriter and Wasp ship alongside it so you can switch. Cupertino needs Obsidian 1.13.4 or newer; MarketingOS runs on 1.5.0 and up.
+
+  MarketingOS pulls Bricolage Grotesque, Figtree and IBM Plex Mono from Google Fonts the first time it paints, so give it a connection on first load. Offline it falls back to your system sans and stays perfectly readable.
 - **Community plugins**, with their files committed so installs are offline and deterministic:
 
   | Plugin | What it does |
