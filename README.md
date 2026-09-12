@@ -8,7 +8,7 @@ Part of the [MarketingOS](https://github.com/the-vibe-marketing-lab/marketing-os
 
 ## What you get
 
-- **Community plugins**, with their files committed so installs are offline and deterministic: `terminal`, `obsidian-icon-folder` (Iconize), `hot-reload`, `git-file-explorer-colors`
+- **Community plugins**, with their files committed so installs are offline and deterministic: Excalidraw (`obsidian-excalidraw-plugin`), Git File Explorer Colors, Hide Empty Folders, Hot Reload, HTML Reader (`obsidian-html-plugin`), Iconize (`obsidian-icon-folder`)
 - **Themes**: Obsidianite (active), Minimal, Things, Tokyo Night, Typewriter, Wasp
 - **CSS snippets**: `hide-claude-code-items.css`, which hides agent machinery (`.claude`, workspace files) from the file explorer
 - **Settings**: appearance, core plugins, hotkeys, graph view, web viewer, app config
